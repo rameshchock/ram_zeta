@@ -1068,7 +1068,7 @@ view: my_cur_report {
     view_label: "Line Items (Individual Charges)"
     description: "How much all aggregated line items are charged to a consolidated billing account in an organization"
     type: sum
-    sql: ${lineitem_blendedcost} ;;
+    sql: cast (${lineitem_blendedcost} as double) ;;
     value_format_name: usd_0
     drill_fields: [common*, total_blended_cost,  total_measures*]
   }
@@ -1077,7 +1077,7 @@ view: my_cur_report {
     view_label: "Line Items (Individual Charges)"
     description: "Total charges for data transfers"
     type: sum
-    sql: ${lineitem_blendedcost} ;;
+    sql: cast (${lineitem_blendedcost} as double) ;;
     value_format_name: usd_0
     filters: {
       field: data_transfer
@@ -1103,7 +1103,7 @@ view: my_cur_report {
     view_label: "Line Items (Individual Charges)"
     description: "Total charges for data transfers"
     type: sum
-    sql: ${lineitem_blendedcost} ;;
+    sql: cast (${lineitem_blendedcost} as double) ;;
     value_format_name: usd_0
     filters: {
       field: data_transfer_outbound
@@ -1117,7 +1117,7 @@ view: my_cur_report {
     view_label: "Line Items (Individual Charges)"
     description: "Total charges for data transfers"
     type: sum
-    sql: ${lineitem_blendedcost} ;;
+    sql: cast (${lineitem_blendedcost} as double) ;;
     value_format_name: usd_0
     filters: {
       field: data_transfer_inbound
@@ -1130,7 +1130,7 @@ view: my_cur_report {
     view_label: "Reserved Units"
     description: "How much all aggregated line items are charged to a consolidated billing account in an organization"
     type: sum
-    sql: ${lineitem_blendedcost};;
+    sql: cast (${lineitem_blendedcost} as double);;
     value_format_name: usd_0
     filters: {
       field: ri_line_item
@@ -1143,7 +1143,7 @@ view: my_cur_report {
     view_label: "Reserved Units"
     description: "How much all aggregated line items are charged to a consolidated billing account in an organization"
     type: sum
-    sql: ${lineitem_blendedcost} ;;
+    sql: cast (${lineitem_blendedcost} as double) ;;
     value_format_name: usd_0
     filters: {
       field: ri_line_item
@@ -1239,7 +1239,7 @@ measure: average_blended_cost_all_time {
   view_label: "Line Items (Individual Charges)"
   description: "How much all aggregated line items are charged to a consolidated billing account in an organization"
   type: average
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd
   drill_fields: [common*, basic_blended_measures*]
 }
@@ -1352,7 +1352,7 @@ measure: EC2_blended_cost {
   label: "EC2 Blended Cost"
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1365,7 +1365,7 @@ measure: EC2_reserved_blended_cost {
   label: "EC2 Reserved Blended Cost"
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1382,7 +1382,7 @@ measure: EC2_non_reserved_blended_cost {
   label: "EC2 Non Reserved Blended Cost"
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1398,7 +1398,7 @@ measure: EC2_non_reserved_blended_cost {
 measure: cloudfront_blended_cost {
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1410,7 +1410,7 @@ measure: cloudfront_blended_cost {
 measure: cloudtrail_blended_cost {
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1421,7 +1421,7 @@ measure: cloudtrail_blended_cost {
 measure: S3_blended_cost {
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1433,7 +1433,7 @@ measure: S3_blended_cost {
 measure: redshift_blended_cost {
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code
@@ -1446,7 +1446,7 @@ measure: rds_blended_cost {
   label: "RDS Blended Cost"
   view_label: "Product Info"
   type: sum
-  sql: ${lineitem_blendedcost} ;;
+  sql: cast (${lineitem_blendedcost} as double) ;;
   value_format_name: usd_0
   filters: {
     field: product_code

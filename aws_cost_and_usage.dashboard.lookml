@@ -1,5 +1,5 @@
 - dashboard: aws_cost_and_usage_overview
-  title: AWS Cost Overview
+  title: AWS Cost and Usage Overview
   layout: newspaper
   elements:
   - name: Total Cost Latest Week
@@ -60,8 +60,8 @@
     height: 4
   - name: Total Cost Latest Month
     title: Total Cost Latest Month
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: single_value
     fields:
     - my_cur_report.total_blended_cost
@@ -116,8 +116,8 @@
     height: 4
   - name: Total Cost YTD
     title: Total Cost YTD
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: single_value
     fields:
     - my_cur_report.total_blended_cost
@@ -172,8 +172,8 @@
     height: 4
   - name: Reserved EC2 Cost Latest Month
     title: Reserved EC2 Cost Latest Month
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: single_value
     fields:
     - my_cur_report.EC2_blended_cost
@@ -231,8 +231,8 @@
     height: 4
   - name: Non Reserved EC2 Cost Latest Month
     title: Non Reserved EC2 Cost Latest Month
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: single_value
     fields:
     - my_cur_report.EC2_blended_cost
@@ -290,8 +290,8 @@
     height: 4
   - name: Total EC2 Cost This Month
     title: Total EC2 Cost This Month
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: single_value
     fields:
     - my_cur_report.EC2_blended_cost
@@ -347,8 +347,8 @@
     height: 4
   - name: Total Cost by Reservation Type
     title: Total Cost by Reservation Type
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: looker_column
     fields:
     - my_cur_report.ri_line_item
@@ -407,8 +407,8 @@
     height: 8
   - name: Total Cost and RI Efficiency
     title: Total Cost and RI Efficiency
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: looker_column
     fields:
     - my_cur_report.total_blended_cost
@@ -523,8 +523,8 @@
     height: 8
   - name: Total EC2 Cost by Reservation Type
     title: Total EC2 Cost by Reservation Type
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: looker_column
     fields:
     - my_cur_report.usage_start_month
@@ -584,8 +584,8 @@
     height: 8
   - name: EC2 Cost and RI Efficiency
     title: EC2 Cost and RI Efficiency
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: looker_column
     fields:
     - my_cur_report.usage_start_month
@@ -703,8 +703,8 @@
     height: 8
   - name: Most Costly Services
     title: Most Costly Services
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: looker_bar
     fields:
     - my_cur_report.product_code
@@ -801,8 +801,8 @@
     height: 13
   - name: Cost by Product (Full Detail)
     title: Cost by Product (Full Detail)
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: table
     fields:
     - my_cur_report.product_code
@@ -889,8 +889,8 @@
     height: 13
   - name: Cost by Usage Type (Top 10)
     title: Cost by Usage Type (Top 10)
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: looker_bar
     fields:
     - my_cur_report.lineitem_usagetype
@@ -985,8 +985,8 @@
     height: 13
   - name: Cost by Usage Type (Full Detail)
     title: Cost by Usage Type (Full Detail)
-    model: aws_athena_cost_and_usage
-    explore: cost_and_usage
+    model: aws_cloud_cost
+    explore: my_cur_report
     type: table
     fields:
     - my_cur_report.lineitem_usagetype

@@ -3,6 +3,9 @@ connection: "aws_optimizer"
 # include all the views
 include: "*.view"
 
+# include all the dashboards
+include: "*.dashboard"
+
 
 datagroup: aws_cloud_cost_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
