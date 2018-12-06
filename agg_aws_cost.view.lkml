@@ -1,5 +1,24 @@
-view: aggr_aws_cost {
-  sql_table_name: site_event_aggregates.aggr_aws_cost ;;
+view: agg_aws_cost {
+#  sql_table_name: aws_cost.agg_aws_cost ;;
+  derived_table: {
+    sql: select
+        lineitem_usagestartdate,account_name,lineitem_usageaccountid,
+        category,lineitem_productcode,lineitem_lineitemtype,
+        case
+        when cr.resourcetags_user_feature
+        in ('events', 'identity', 'infrastructure','recommendations','other','data_import_export','segmentation','application','application_jobs','event')
+        then cr.resourcetags_user_feature
+        else 'uncategorized'
+        end resourcetags_user_feature,
+        resourcetags_user_role,resourcetags_user_stack,
+        resourcetags_user_feature_type,resourcetags_user_name,
+        lineitem_blendedcost
+        from
+          aws_cost.agg_aws_cost  cr
+        where
+          cr.lineitem_usageaccountid IN ('066377602118','766806801073');;
+  }
+  suggestions: no
 
   dimension: account_name {
     type: string
@@ -73,7 +92,7 @@ view: aggr_aws_cost {
 
   measure: lineitem_blendedcost {
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
   }
 
@@ -81,7 +100,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for event services"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature
@@ -94,7 +113,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for resources"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature
@@ -107,7 +126,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for identity services"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature
@@ -120,7 +139,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for infrastructure"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature
@@ -133,7 +152,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for recommendations"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature
@@ -146,7 +165,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for other services"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature
@@ -159,7 +178,7 @@ view: aggr_aws_cost {
     view_label: "Calculated cost"
     description: "Cost for miscellaneous services"
     type: sum
-    sql: cast (${TABLE}.lineitem_blendedcost as double) ;;
+    sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
       field: resourcetags_user_feature

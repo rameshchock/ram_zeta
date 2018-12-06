@@ -12,11 +12,13 @@ persist_with: events_default_datagroup
 
 explore: aggr_site_id_daily {}
 
-explore: aggr_site_id_hourly {}
+explore: v_daily_event_cost {}
+
+# explore: aggr_site_id_hourly {}
 
 explore: aggr_siteid_event_types_daily {}
 
-explore: aggr_siteid_event_types_hourly {}
+# explore: aggr_siteid_event_types_hourly {}
 
 #-- explore: daily_partition_log_manager {}
 
@@ -34,4 +36,8 @@ explore: aggr_siteid_event_types_hourly {}
 
 explore: aggr_campaigns_daily {}
 
-explore: aggr_campaigns_hourly {}
+# explore: aggr_campaigns_hourly {}
+
+explore: agg_aws_cost {}
+
+explore: agg_cost_and_event {}
