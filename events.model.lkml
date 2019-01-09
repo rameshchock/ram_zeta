@@ -1,5 +1,7 @@
 connection: "rtem"
 
+week_start_day: wednesday
+
 # include all the views
 include: "*.view"
 
@@ -41,3 +43,5 @@ explore: aggr_campaigns_daily {}
 explore: agg_aws_cost {}
 
 explore: agg_cost_and_event {}
+
+explore: page_response_stats {}

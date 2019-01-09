@@ -68,6 +68,13 @@ view: v_daily_event_cost {
     sql: ${TABLE}.resource_cost ;;
     value_format_name: usd_0
   }
+  measure: ri_cost {
+    view_label: "Cost Metrics"
+    type: sum
+    sql: ${TABLE}.ri_cost ;;
+    value_format_name: usd_0
+  }
+
 
   measure: uncategorized_cost {
     view_label: "Cost Metrics"
@@ -78,21 +85,21 @@ view: v_daily_event_cost {
 
   measure: cpm_events {
     view_label: "CPMs"
-    type: sum
+    type: average
     sql: ${TABLE}.cpm_events ;;
     value_format:"$#0.0000"
   }
 
   measure: cpm_messages {
     view_label: "CPMs"
-    type: sum
+    type: average
     sql: ${TABLE}.cpm_messages ;;
     value_format:"$#0.0000"
   }
 
   measure: cpm_recommendations {
     view_label: "CPMs"
-    type: sum
+    type: average
     sql: ${TABLE}.cpm_recommendations ;;
     value_format:"$#0.0000"
   }
@@ -100,7 +107,7 @@ view: v_daily_event_cost {
 
   measure: cpm_identity {
     view_label: "CPMs"
-    type: sum
+    type: average
     sql: ${TABLE}.cpm_identity ;;
     value_format:"$#0.0000"
   }
@@ -108,7 +115,7 @@ view: v_daily_event_cost {
 
   measure: cpm_recset_events {
     view_label: "CPMs"
-    type: sum
+    type: average
     sql: ${TABLE}.cpm_recset_events ;;
     value_format:"$#0.0000"
   }
