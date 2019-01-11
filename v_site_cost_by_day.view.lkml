@@ -1,0 +1,100 @@
+view: v_site_cost_by_day {
+  sql_table_name: aws_cost.v_site_cost_by_day ;;
+
+  dimension_group: events {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.events_date ;;
+  }
+
+  dimension: site_id {
+    type: string
+    sql: ${TABLE}.site_id ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: []
+  }
+
+  measure: cpm_events {
+    view_label: "CPMs"
+    type: average
+    sql: ${TABLE}.cpm_events ;;
+    value_format:"$#0.0000"
+  }
+
+  measure: cpm_messages {
+    view_label: "CPMs"
+    type: average
+    sql: ${TABLE}.cpm_messages ;;
+    value_format:"$#0.0000"
+  }
+
+  measure: cpm_recommendations {
+    view_label: "CPMs"
+    type: average
+    sql: ${TABLE}.cpm_recommendations ;;
+    value_format:"$#0.0000"
+  }
+
+
+  measure: cpm_identity {
+    view_label: "CPMs"
+    type: average
+    sql: ${TABLE}.cpm_identity ;;
+    value_format:"$#0.0000"
+  }
+
+
+  measure: cpm_recset_events {
+    view_label: "CPMs"
+    type: average
+    sql: ${TABLE}.cpm_recset_events ;;
+    value_format:"$#0.0000"
+  }
+
+  measure: all_events_count {
+    view_label: "Event Metrics"
+    type: sum
+    sql: ${TABLE}.all_events_count ;;
+
+  }
+
+  measure: messages_sent {
+    view_label: "Event Metrics"
+    type: sum
+    sql: ${TABLE}.messages_sent ;;
+
+  }
+
+  measure: bt_person_sets {
+    view_label: "Event Metrics"
+    type: sum
+    sql: ${TABLE}.bt_person_sets ;;
+
+  }
+
+  measure: bt_recs_served {
+    view_label: "Event Metrics"
+    type: sum
+    sql: ${TABLE}.bt_recs_served ;;
+
+  }
+
+  measure: bt_recset_requests {
+    view_label: "Event Metrics"
+    type: sum
+    sql: ${TABLE}.bt_recset_requests ;;
+
+  }
+}
