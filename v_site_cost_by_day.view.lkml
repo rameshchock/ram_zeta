@@ -97,4 +97,39 @@ view: v_site_cost_by_day {
     sql: ${TABLE}.bt_recset_requests ;;
 
   }
+
+  measure: all_events_cost {
+    view_label: "Site Cost"
+    type: sum
+    sql: ${TABLE}.cpm_events*(${TABLE}.all_events_count/1000) ;;
+    value_format_name: usd_0
+  }
+
+  measure: message_cost {
+    view_label: "Site Cost"
+    type: sum
+    sql: ${TABLE}.cpm_messages*(${TABLE}.messages_sent/1000) ;;
+    value_format_name: usd_0
+  }
+
+  measure: recommendation_cost {
+    view_label: "Site Cost"
+    type: sum
+    sql: ${TABLE}.cpm_recommendations*(${TABLE}.bt_recs_served/1000) ;;
+    value_format_name: usd_0
+  }
+
+  measure: recset_cost {
+    view_label: "Site Cost"
+    type: sum
+    sql: ${TABLE}.cpm_recset_events*(${TABLE}.bt_recset_requests/1000) ;;
+    value_format_name: usd_0
+  }
+
+  measure: identity_cost {
+    view_label: "Site Cost"
+    type: sum
+    sql: ${TABLE}.cpm_identity*(${TABLE}.bt_person_sets/1000) ;;
+    value_format_name: usd_0
+  }
 }
