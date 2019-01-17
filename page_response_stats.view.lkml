@@ -57,19 +57,19 @@ view: page_response_stats {
   }
 
 
-  measure: avg_response_time_msec {
+  measure: avg_response_time_milliseconds {
     type: average
     sql: ${TABLE}.avg_response_time ;;
     value_format:"#0"
   }
 
-  measure: max_response_time_msec {
+  measure: max_response_time_milliseconds {
     type: average
     sql: ${TABLE}.max_response_time ;;
     value_format:"#0"
   }
 
-  measure: min_reponse_time_msec {
+  measure: min_reponse_time_milliseconds {
     type: average
     sql: ${TABLE}.min_reponse_time ;;
     value_format:"#0"
