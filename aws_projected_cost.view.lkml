@@ -6,8 +6,18 @@ view: aws_projected_cost {
     drill_fields: [detail*]
   }
 
-  dimension: month_id {
-    type: string
+  dimension_group: usagedate {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.month_id ;;
   }
 
@@ -87,7 +97,9 @@ view: aws_projected_cost {
 
   set: detail {
     fields: [
-      month_id,
+      usagedate_date,
+      usagedate_week,
+      usagedate_month,
       account_name,
       lineitem_usageaccountid,
       monthly_usage_cost,
