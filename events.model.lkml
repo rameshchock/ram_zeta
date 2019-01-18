@@ -49,3 +49,5 @@ explore: agg_cost_and_event {}
 explore: page_response_stats {}
 
 explore: v_events_kpi_dash {}
+
+explore: aws_projected_cost {}

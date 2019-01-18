@@ -19,35 +19,40 @@ view: v_events_kpi_dash {
   measure: peak_emails_per_hr {
     view_label: "RPS Metrics"
     type: sum
-    sql: ${TABLE}.peak_emails_per_hr ;;
+    sql: ${TABLE}.peak_emails_per_hr;;
+    value_format:"0"
 
   }
 
   measure: peak_events_per_hr {
     view_label: "RPS Metrics"
     type: sum
-    sql: ${TABLE}.peak_events_per_hr ;;
+    sql: ${TABLE}.peak_events_per_hr;;
+    value_format:"0"
 
   }
 
   measure: peak_events_per_sec {
     view_label: "RPS Metrics"
     type: sum
-    sql: ${TABLE}.peak_events_per_sec ;;
+    sql: ${TABLE}.peak_events_per_sec;;
+    value_format:"0"
 
   }
 
   measure: peak_recs_per_hr {
     view_label: "RPS Metrics"
     type: sum
-    sql: ${TABLE}.peak_recs_per_hr ;;
+    sql: ${TABLE}.peak_recs_per_hr;;
+    value_format:"0"
 
   }
 
   measure: peak_recs_per_sec {
     view_label: "RPS Metrics"
     type: sum
-    sql: ${TABLE}.peak_recs_per_sec ;;
+    sql: ${TABLE}.peak_recs_per_sec;;
+    value_format:"0"
 
   }
 
