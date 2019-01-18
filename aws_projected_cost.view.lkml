@@ -11,6 +11,16 @@ view: aws_projected_cost {
     sql: ${TABLE}.month_id ;;
   }
 
+  dimension: month_year {
+    type: string
+    sql: ${TABLE}.month ;;
+  }
+
+  dimension: business_unit {
+    type: string
+    sql: ${TABLE}.business_unit ;;
+  }
+
   dimension: account_name {
     type: string
     sql: ${TABLE}.account_name ;;
