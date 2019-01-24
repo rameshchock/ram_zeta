@@ -51,3 +51,5 @@ explore: page_response_stats {}
 explore: v_events_kpi_dash {}
 
 explore: aws_projected_cost {}
+
+explore: v_service_uptime_report {}
