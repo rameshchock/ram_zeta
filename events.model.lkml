@@ -52,4 +52,6 @@ explore: v_events_kpi_dash {}
 
 explore: aws_projected_cost {}
 
-explore: v_service_uptime_report {}
+explore: service_uptime_report {}
+
+explore: v_service_uptime_report_by_period {}

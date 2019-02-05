@@ -1,12 +1,17 @@
-view: v_service_uptime_report {
-  sql_table_name: process_metrics.v_service_uptime_report ;;
+view: v_service_uptime_report_by_period {
+  sql_table_name: process_metrics.v_service_uptime_report_by_period ;;
+
+  dimension: period {
+    type: string
+    sql: ${TABLE}.period ;;
+  }
 
   dimension: service_name {
     type: string
     sql: ${TABLE}.service_name ;;
   }
 
-  dimension_group: start {
+  dimension_group: report {
     type: time
     timeframes: [
       raw,
@@ -17,30 +22,24 @@ view: v_service_uptime_report {
       quarter,
       year
     ]
-    sql: ${TABLE}.start_time ;;
+    sql: ${TABLE}.report_date ;;
   }
 
-  measure: down_time {
+  measure: down_time_in_secs {
     type: sum
     sql: ${TABLE}.down_time ;;
     value_format_name: decimal_0
   }
 
-  measure: total_time {
-    type: sum
-    sql: ${TABLE}.total_time ;;
-    value_format_name: decimal_0
-  }
-
-  measure: up_time {
+  measure: up_time_in_secs {
     type: sum
     sql: ${TABLE}.up_time ;;
     value_format_name: decimal_0
   }
 
-  measure: uptime_perc {
+  measure: uptime_percentage {
     type: average
-    sql: ${TABLE}.uptime_perc ;;
+    sql: ${TABLE}.up_perc;;
     value_format_name:percent_2
   }
 

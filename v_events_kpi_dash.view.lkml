@@ -1,100 +1,63 @@
 view: v_events_kpi_dash {
   sql_table_name: site_event_aggregates.v_events_kpi_dash ;;
 
-  dimension_group: events {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}.events_date ;;
-  }
-
-  measure: peak_emails_per_hr {
-    view_label: "RPS Metrics"
-    type: sum
-    sql: ${TABLE}.peak_emails_per_hr;;
-    value_format:"0"
-
-  }
-
-  measure: peak_events_per_hr {
-    view_label: "RPS Metrics"
-    type: sum
-    sql: ${TABLE}.peak_events_per_hr;;
-    value_format:"0"
-
-  }
-
-  measure: peak_events_per_sec {
-    view_label: "RPS Metrics"
-    type: sum
-    sql: ${TABLE}.peak_events_per_sec;;
-    value_format:"0"
-
-  }
-
-  measure: peak_recs_per_hr {
-    view_label: "RPS Metrics"
-    type: sum
-    sql: ${TABLE}.peak_recs_per_hr;;
-    value_format:"0"
-
-  }
-
-  measure: peak_recs_per_sec {
-    view_label: "RPS Metrics"
-    type: sum
-    sql: ${TABLE}.peak_recs_per_sec;;
-    value_format:"0"
-
-  }
-
-  measure: sms_sent {
-    view_label: "Notifications"
-    type: sum
-    sql: ${TABLE}.sms_sent ;;
-
-  }
-
-  measure: emails_sent {
-    view_label: "Notifications"
-    type: sum
-    sql: ${TABLE}.emails_sent ;;
-
-  }
-
-  measure: email_recs {
-    view_label: "Recos"
-    type: sum
+  dimension: email_recs {
+    type: number
     sql: ${TABLE}.email_recs ;;
-
   }
 
-  measure: web_recs {
-    view_label: "Recos"
-    type: sum
-    sql: ${TABLE}.web_recs ;;
-
+  dimension: emails_sent {
+    type: number
+    sql: ${TABLE}.emails_sent ;;
   }
 
-  measure: total_recs {
-    view_label: "Recos"
-    type: sum
-    sql: ${TABLE}.total_recs ;;
-
+  dimension: peak_emails_per_hr {
+    type: number
+    sql: ${TABLE}.peak_emails_per_hr ;;
   }
 
-  measure: total_events {
-    type: sum
+  dimension: peak_events_per_sec {
+    type: number
+    sql: ${TABLE}.peak_events_per_sec ;;
+  }
+
+  dimension: peak_recs_per_sec {
+    type: number
+    sql: ${TABLE}.peak_recs_per_sec ;;
+  }
+
+  dimension: period {
+    type: string
+    sql: ${TABLE}.period ;;
+  }
+
+  dimension: period_name {
+    type: string
+    sql: ${TABLE}.period_name ;;
+  }
+
+  dimension: sms_sent {
+    type: number
+    sql: ${TABLE}.sms_sent ;;
+  }
+
+  dimension: total_events {
+    type: number
     sql: ${TABLE}.total_events ;;
-
   }
 
+  dimension: total_recs {
+    type: number
+    sql: ${TABLE}.total_recs ;;
+  }
+
+  dimension: web_recs {
+    type: number
+    sql: ${TABLE}.web_recs ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [period_name]
+  }
 }
