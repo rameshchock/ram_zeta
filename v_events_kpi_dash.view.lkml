@@ -1,108 +1,34 @@
 view: v_events_kpi_dash {
   sql_table_name: site_event_aggregates.v_events_kpi_dash ;;
 
-  dimension: period_name {
+  dimension: id {
     type: string
-    sql: ${TABLE}.period_name ;;
+    sql: ${TABLE}.id ;;
   }
 
-  dimension: email_recs {
-    type: number
-    sql: ${TABLE}.email_recs ;;
+  dimension: Metric {
+    type: string
+    sql: ${TABLE}.metric ;;
   }
 
-  dimension: emails_sent {
-    type: number
-    sql: ${TABLE}.emails_sent ;;
-  }
-
-  dimension: peak_emails_per_hr {
-    type: number
-    sql: ${TABLE}.peak_emails_per_hr ;;
-    value_format_name: decimal_0
-  }
-
-  dimension: peak_events_per_sec {
-    type: number
-    sql: ${TABLE}.peak_events_per_sec ;;
-    value_format_name: decimal_0
-  }
-
-  dimension: peak_recs_per_sec {
-    type: number
-    sql: ${TABLE}.peak_recs_per_sec ;;
-    value_format_name: decimal_0
-  }
-
-
-  dimension: sms_sent {
-    type: number
-    sql: ${TABLE}.sms_sent ;;
-  }
-
-  dimension: total_events {
-    type: number
-    sql: ${TABLE}.total_events ;;
-  }
-
-  dimension: total_recs {
-    type: number
-    sql: ${TABLE}.total_recs ;;
-  }
-
-  dimension: web_recs {
-    type: number
-    sql: ${TABLE}.web_recs ;;
-  }
-
-
-  measure: email_rec_count {
-    type: sum
-    sql: ${TABLE}.email_recs ;;
-  }
-
-  measure: emails_sent_count {
-    type: sum
-    sql: ${TABLE}.emails_sent ;;
-  }
-
-  measure: peak_email_count_per_hr {
+  measure: This_Week {
     type: max
-    sql: ${TABLE}.peak_emails_per_hr ;;
-    value_format_name: decimal_0
+    sql: ${TABLE}.this_week ;;
   }
 
-  measure: peak_events_count_per_sec {
+  measure: Last_Week {
     type: max
-    sql: ${TABLE}.peak_events_per_sec ;;
-    value_format_name: decimal_0
+    sql: ${TABLE}.last_week ;;
   }
 
-  measure: peak_recs_count_per_sec {
+  measure: Current_MTD {
     type: max
-    sql: ${TABLE}.peak_recs_per_sec ;;
-    value_format_name: decimal_0
+    sql: ${TABLE}.current_mtd ;;
   }
 
-
-  measure: sms_sent_count {
-    type: sum
-    sql: ${TABLE}.sms_sent ;;
-  }
-
-  measure: total_events_count {
-    type: sum
-    sql: ${TABLE}.total_events ;;
-  }
-
-  measure: total_recs_count {
-    type: sum
-    sql: ${TABLE}.total_recs ;;
-  }
-
-  measure: web_recs_count {
-    type: sum
-    sql: ${TABLE}.web_recs ;;
+  measure: Previous_Month {
+    type: max
+    sql: ${TABLE}.previous_month ;;
   }
 
   measure: count {
