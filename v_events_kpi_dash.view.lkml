@@ -1,7 +1,7 @@
 view: v_events_kpi_dash {
   sql_table_name: site_event_aggregates.v_events_kpi_dash ;;
 
-  dimension: period {
+  dimension: period_name {
     type: string
     sql: ${TABLE}.period_name ;;
   }
