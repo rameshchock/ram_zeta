@@ -1,58 +1,40 @@
 view: v_kpi_test {
-  sql_table_name: site_event_aggregates.v_events_kpi_report_by_period ;;
+  sql_table_name: site_event_aggregates.v_kpi_test ;;
 
-  dimension: email_recs {
-    type: number
-    sql: ${TABLE}.email_recs ;;
+
+    dimension: id {
+      type: string
+      sql: ${TABLE}.id ;;
+    }
+
+   dimension: Metric {
+      type: string
+      sql: ${TABLE}.metric ;;
+    }
+
+    dimension: This_Week {
+      type: string
+      sql: ${TABLE}.this_week ;;
+    }
+
+    dimension: Last_Week {
+      type: string
+      sql: ${TABLE}.last_week ;;
+    }
+
+    dimension: Current_MTD {
+      type: string
+      sql: ${TABLE}.current_mtd ;;
+    }
+
+    dimension: Previous_Month {
+      type: string
+      sql: ${TABLE}.previous_month ;;
+    }
+
+    measure: count {
+      type: count
+
+    }
   }
 
-  dimension: emails_sent {
-    type: number
-    sql: ${TABLE}.emails_sent ;;
-  }
-
-  dimension: peak_emails_per_hr {
-    type: number
-    sql: ${TABLE}.peak_emails_per_hr ;;
-  }
-
-  dimension: peak_events_per_sec {
-    type: number
-    sql: ${TABLE}.peak_events_per_sec ;;
-  }
-
-  dimension: peak_recs_per_sec {
-    type: number
-    sql: ${TABLE}.peak_recs_per_sec ;;
-  }
-
-  dimension: period_name {
-    type: string
-    sql: ${TABLE}.period_name ;;
-  }
-
-  dimension: sms_sent {
-    type: number
-    sql: ${TABLE}.sms_sent ;;
-  }
-
-  dimension: total_events {
-    type: number
-    sql: ${TABLE}.total_events ;;
-  }
-
-  dimension: total_recs {
-    type: number
-    sql: ${TABLE}.total_recs ;;
-  }
-
-  dimension: web_recs {
-    type: number
-    sql: ${TABLE}.web_recs ;;
-  }
-
-  measure: count {
-    type: count
-    drill_fields: [period_name]
-  }
-}
