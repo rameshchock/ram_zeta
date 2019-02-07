@@ -50,6 +50,8 @@ explore: agg_cost_and_event {}
 
 explore: page_response_stats {}
 
+explore: v_kpi_test {}
+
 explore: v_events_kpi_dash {}
 
 explore: v_events_kpi_report{}
