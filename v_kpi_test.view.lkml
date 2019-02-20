@@ -32,9 +32,13 @@ view: v_kpi_test {
       sql: ${TABLE}.previous_month ;;
     }
 
+  dimension: Two_Months_Before {
+    type: string
+    sql: ${TABLE}.two_months_before ;;
+  }
+
     measure: count {
       type: count
 
     }
   }
-

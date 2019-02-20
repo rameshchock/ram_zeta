@@ -31,6 +31,11 @@ view: v_events_kpi_dash {
     sql: ${TABLE}.previous_month ;;
   }
 
+  measure: Two_months_before {
+    type: max
+    sql: ${TABLE}.two_months_before ;;
+  }
+
   measure: count {
     type: count
 
