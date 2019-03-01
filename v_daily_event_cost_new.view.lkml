@@ -1,4 +1,4 @@
-view: v_daily_event_cost {
+view: v_daily_event_cost_new {
   sql_table_name: aws_cost.v_daily_event_cost;;
 
   dimension_group: events {

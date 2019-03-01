@@ -18,6 +18,8 @@ explore: aggr_site_id_daily {}
 
 explore: v_daily_event_cost {}
 
+explore: v_daily_event_cost_new {}
+
 explore: v_site_cost_by_day {}
 
 # explore: aggr_site_id_hourly {}

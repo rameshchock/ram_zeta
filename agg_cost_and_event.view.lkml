@@ -26,14 +26,14 @@ view: agg_cost_and_event {
       SELECT
         DATE(agg_aws_cost.lineitem_usagestartdate ) AS "lineitem_usagestartdate",
         COALESCE(SUM(agg_aws_cost.lineitem_blendedcost ), 0) AS "lineitem_blendedcost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature  IN ('events', 'event','message')) THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "event_cost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature = 'identity') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "identity_cost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature = 'infrastructure') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "infrastructure_cost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature
-        NOT IN ('untagged','events', 'event','message','identity','infrastructure','recommendations','resources') and agg_aws_cost.resourcetags_user_feature is not null) THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "other_cost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature = 'recommendations') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "recommendation_cost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature = 'resources') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "resource_cost",
-        COALESCE(SUM(CASE WHEN (agg_aws_cost.resourcetags_user_feature='untagged' or agg_aws_cost.resourcetags_user_feature is null) THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "uncategorized_cost"
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature  IN ('events', 'event','message')) THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "event_cost",
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature = 'identity') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "identity_cost",
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature = 'infrastructure') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "infrastructure_cost",
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature
+        NOT IN ('untagged','events', 'event','message','identity','infrastructure','recommendations','resources') and agg_aws_cost.user_feature is not null) THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "other_cost",
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature = 'recommendations') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "recommendation_cost",
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature = 'resources') THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "resource_cost",
+        COALESCE(SUM(CASE WHEN (agg_aws_cost.user_feature='untagged' or agg_aws_cost.user_feature is null) THEN agg_aws_cost.lineitem_blendedcost  ELSE 0 END), 0) AS "uncategorized_cost"
       FROM aws_cost.agg_aws_cost agg_aws_cost
       WHERE lineitem_usageaccountid in ('066377602118','766806801073')
       GROUP BY 1) ac

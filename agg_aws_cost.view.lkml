@@ -5,13 +5,13 @@ view: agg_aws_cost {
         lineitem_usagestartdate,account_name,lineitem_usageaccountid,
         category,lineitem_productcode,lineitem_lineitemtype,
         case
-        when cr.resourcetags_user_feature
+        when cr.user_feature
         in ('events', 'identity', 'infrastructure','recommendations','other','data_import_export','segmentation','application','application_jobs','event')
-        then cr.resourcetags_user_feature
+        then cr.user_feature
         else 'uncategorized'
-        end resourcetags_user_feature,
-        resourcetags_user_role,resourcetags_user_stack,
-        resourcetags_user_feature_type,resourcetags_user_name,
+        end user_feature,
+        user_role,user_stack,
+        user_feature_type,user_name,
         lineitem_blendedcost
         from
           aws_cost.agg_aws_cost  cr
@@ -60,34 +60,34 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_usagestartdate ;;
   }
 
-  dimension: resourcetags_user_feature {
+  dimension: user_feature {
     type: string
-    sql: ${TABLE}.resourcetags_user_feature ;;
+    sql: ${TABLE}.user_feature ;;
   }
 
-  dimension: resourcetags_user_feature_type {
+  dimension: user_feature_type {
     type: string
-    sql: ${TABLE}.resourcetags_user_feature_type ;;
+    sql: ${TABLE}.user_feature_type ;;
   }
 
-  dimension: resourcetags_user_name {
+  dimension: user_name {
     type: string
-    sql: ${TABLE}.resourcetags_user_name ;;
+    sql: ${TABLE}.user_name ;;
   }
 
-  dimension: resourcetags_user_role {
+  dimension: user_role {
     type: string
-    sql: ${TABLE}.resourcetags_user_role ;;
+    sql: ${TABLE}.user_role ;;
   }
 
-  dimension: resourcetags_user_stack {
+  dimension: user_stack {
     type: string
-    sql: ${TABLE}.resourcetags_user_stack ;;
+    sql: ${TABLE}.user_stack ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [account_name, resourcetags_user_name]
+    drill_fields: [account_name, user_name]
   }
 
   measure: lineitem_blendedcost {
@@ -103,7 +103,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "events,event"
     }
     drill_fields: [lineitem_blendedcost]
@@ -116,7 +116,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "resources"
     }
     drill_fields: [lineitem_blendedcost]
@@ -129,7 +129,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "identity"
     }
     drill_fields: [lineitem_blendedcost]
@@ -142,7 +142,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "infrastructure"
     }
     drill_fields: [lineitem_blendedcost]
@@ -155,7 +155,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "recommendations"
     }
     drill_fields: [lineitem_blendedcost]
@@ -168,7 +168,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "other"
     }
     drill_fields: [lineitem_blendedcost]
@@ -181,7 +181,7 @@ view: agg_aws_cost {
     sql: ${TABLE}.lineitem_blendedcost ;;
     value_format_name: usd_0
     filters: {
-      field: resourcetags_user_feature
+      field: user_feature
       value: "uncategorized"
     }
     drill_fields: [lineitem_blendedcost]
