@@ -1,5 +1,10 @@
 view: login_history {
-  sql_table_name: snowflake.LOGIN_HISTORY ;;
+  sql_table_name: snowflake.V_LOGIN_HISTORY ;;
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
+  }
 
   dimension: client_ip {
     type: string

@@ -1,11 +1,16 @@
 view: table_storage_metrics {
-  sql_table_name: snowflake.TABLE_STORAGE_METRICS ;;
+  sql_table_name: snowflake.V_TABLE_STORAGE_METRICS ;;
 
 #   dimension: id {
 #     primary_key: yes
 #     type: number
 #     sql: ${TABLE}.ID ;;
 #   }
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
+  }
 
   dimension: active_bytes {
     type: string

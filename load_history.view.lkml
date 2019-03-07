@@ -1,8 +1,13 @@
 view: load_history {
-  sql_table_name: snowflake.LOAD_HISTORY;;
+  sql_table_name: snowflake.V_LOAD_HISTORY;;
   dimension: table_id {
     type: number
     sql: ${TABLE}.TABLE_ID ;;
+  }
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
   }
 
   dimension: table_name {

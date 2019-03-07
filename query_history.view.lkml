@@ -1,5 +1,10 @@
 view: query_history {
-  sql_table_name: snowflake.QUERY_HISTORY ;;
+  sql_table_name: snowflake.V_QUERY_HISTORY ;;
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
+  }
 
   dimension: compilation_time {
     type: string

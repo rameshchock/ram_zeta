@@ -1,10 +1,15 @@
 view: storage_usage {
   sql_table_name:
   {% if database_name._in_query or database_id._in_query %}
-  snowflake.DATABASE_STORAGE_USAGE_HISTORY
+  snowflake.V_DATABASE_STORAGE_USAGE_HISTORY
   {% else %}
-  snowflake.STORAGE_USAGE
+  snowflake.V_STORAGE_USAGE
   {% endif %};;
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
+  }
 
     dimension: database_id {
       type: number

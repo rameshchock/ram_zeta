@@ -1,5 +1,11 @@
 view: warehouse_metering_history {
-  sql_table_name: snowflake.WAREHOUSE_METERING_HISTORY ;;
+  sql_table_name: snowflake.V_WAREHOUSE_METERING_HISTORY ;;
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
+  }
+
 
   dimension: credits_used {
     type: number

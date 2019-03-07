@@ -1,5 +1,10 @@
 view: tables {
-  sql_table_name: snowflake.TABLES ;;
+  sql_table_name: snowflake.V_TABLES ;;
+
+  dimension: environment {
+    type: string
+    sql: ${TABLE}.env ;;
+  }
 
   dimension: id {
     primary_key: yes
