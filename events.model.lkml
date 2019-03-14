@@ -18,7 +18,9 @@ explore: aggr_site_id_daily {}
 
 explore: v_daily_event_cost {}
 
-explore: v_daily_event_cost_new {}
+explore: v_campaign_events {}
+
+#-- explore: v_daily_event_cost_new {}
 
 explore: v_site_cost_by_day {}
 
@@ -42,7 +44,7 @@ explore: aggr_siteid_event_types_daily {}
 
 #-- explore: siteid_event_types_by_min {}
 
-explore: aggr_campaigns_daily {}
+#-- explore: aggr_campaigns_daily {}
 
 # explore: aggr_campaigns_hourly {}
 
@@ -52,7 +54,7 @@ explore: agg_cost_and_event {}
 
 explore: page_response_stats {}
 
-explore: v_kpi_test {}
+# -- explore: v_kpi_test {}
 
 explore: v_events_kpi_dash {}
 
