@@ -65,6 +65,7 @@ view: data_transfer_history {
     drill_fields: []
   }
 
+
   measure: bytes_transferred {
     type: sum
     sql: ${TABLE}.bytes_transferred ;;
@@ -72,28 +73,27 @@ view: data_transfer_history {
 
   measure: current_mtd_bytes_transferred {
     type: sum
-    sql:  ${bytes_transferred} ;;
+    sql:  ${TABLE}.bytes_transferred ;;
     filters: {field: start_time value: "this month"}
-    value_format_name: "0"
   }
 
   measure: prior_mtd_bytes_transferred {
     type: sum
-    sql:  ${bytes_transferred} ;;
+    sql:  ${TABLE}.bytes_transferred ;;
     filters: {field: is_prior_month_mtd value: "yes"}
 
   }
 
   measure: current_mtd_cost {
     type: sum
-    sql:  (${bytes_transferred}/ power(1024,4)) * 0.02 ;;
+    sql:  ( ${TABLE}.bytes_transferred / power(1024,4)) * 0.02 ;;
     filters: {field: start_time value: "this month"}
     value_format_name: usd_0
   }
 
   measure: prior_mtd_cost {
     type: sum
-    sql: (${bytes_transferred}/ power(1024,4)) * 0.02 ;;
+    sql: ( ${TABLE}.bytes_transferred / power(1024,4)) * 0.02 ;;
     filters: {field: is_prior_month_mtd value: "yes"}
     value_format_name: usd_0
     }
