@@ -93,4 +93,18 @@ view: storage_usage {
       filters: {field: usage_date value: "last month"}
       value_format_name: decimal_4
     }
+
+  measure: current_mtd_storage_cost {
+    type: average
+    sql:  (${storage_tb} + ${failsafe_tb})*23 ;;
+    filters: {field: usage_date value: "this month"}
+    value_format_name: usd_0
   }
+
+  measure: prior_mtd_storage_cost {
+    type: average
+    sql:  (${storage_tb} + ${failsafe_tb})*23 ;;
+    filters: {field: usage_date value: "last month"}
+    value_format_name: usd_0
+  }
+}

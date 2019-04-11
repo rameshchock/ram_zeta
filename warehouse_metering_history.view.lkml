@@ -87,7 +87,6 @@ view: warehouse_metering_history {
     type: sum
     sql:  ${credits_used} ;;
     filters: {field: start_date value: "this month"}
-    value_format: "0.000,\" K\""
     drill_fields: [warehouse_name,total_credits_used]
   }
 
@@ -96,6 +95,27 @@ view: warehouse_metering_history {
     sql:  ${credits_used} ;;
     filters: {field: is_prior_month_mtd value: "yes"}
 
+  }
+
+  measure: current_mtd_cost {
+    type: sum
+    sql:  CASE WHEN ${TABLE}.env = 'prod'
+     THEN ${credits_used} * 2.81
+     ELSE ${credits_used} * 1.7
+     END ;;
+    filters: {field: start_date value: "this month"}
+    value_format_name: usd_0
+    drill_fields: [warehouse_name,total_credits_used]
+  }
+
+  measure: prior_mtd_cost {
+    type: sum
+    sql: CASE WHEN ${TABLE}.env = 'prod'
+    THEN ${credits_used} * 2.81
+    ELSE ${credits_used} * 1.7
+    END ;;
+    filters: {field: is_prior_month_mtd value: "yes"}
+    value_format_name: usd_0
   }
 
 }
