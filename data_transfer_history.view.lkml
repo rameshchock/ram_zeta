@@ -56,8 +56,8 @@ view: data_transfer_history {
 
   dimension: is_prior_month_mtd {
     type: yesno
-    sql:  DATE_TRUNC('month', ${start_time}) = DATE_TRUNC('month', (current_timestamp - interval '1 month'))
-      and ${start_time} <= current_timestamp - interval '1 month'  ;;
+    sql:  DATE_TRUNC('month', ${start_raw}) = DATE_TRUNC('month', (current_timestamp - interval '1 month'))
+      and ${start_raw} <= current_timestamp - interval '1 month'  ;;
   }
 
   measure: count {
@@ -73,14 +73,16 @@ view: data_transfer_history {
 
   measure: current_mtd_bytes_transferred {
     type: sum
-    sql:  ${TABLE}.bytes_transferred ;;
+    sql:  ${TABLE}.bytes_transferred / power(1024,4) ;;
     filters: {field: start_time value: "this month"}
+    value_format_name: decimal_2
   }
 
   measure: prior_mtd_bytes_transferred {
     type: sum
-    sql:  ${TABLE}.bytes_transferred ;;
+    sql:  ${TABLE}.bytes_transferred / power(1024,4);;
     filters: {field: is_prior_month_mtd value: "yes"}
+    value_format_name: decimal_2
 
   }
 
