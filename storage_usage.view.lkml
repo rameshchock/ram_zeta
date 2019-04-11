@@ -80,9 +80,37 @@ view: storage_usage {
       sql: ${total_tb};;
     }
 
-    measure: curr_mtd_billable_tb {
+  measure: curr_mtd_storage_tb {
+    type: average
+    sql:  ${storage_tb};;
+    filters: {field: usage_date value: "this month"}
+    value_format_name: decimal_4
+  }
+
+  measure: prior_mtd_storage_tb {
+    type: average
+    sql:  ${storage_tb} ;;
+    filters: {field: usage_date value: "last month"}
+    value_format_name: decimal_4
+  }
+
+  measure: curr_mtd_billable_tb {
+    type: average
+    sql:  ${total_tb};;
+    filters: {field: usage_date value: "this month"}
+    value_format_name: decimal_4
+  }
+
+  measure: prior_mtd_failsafe_tb {
+    type: average
+    sql:  ${failsafe_tb};;
+    filters: {field: usage_date value: "last month"}
+    value_format_name: decimal_4
+  }
+
+    measure: curr_mtd_failsafe_tb {
       type: average
-      sql:  ${total_tb};;
+      sql:  ${failsafe_tb};;
       filters: {field: usage_date value: "this month"}
       value_format_name: decimal_4
     }
