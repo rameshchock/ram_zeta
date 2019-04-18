@@ -56,6 +56,8 @@ explore: warehouse_metering_history {}
 
 explore: data_transfer_history {}
 
+explore: sf_usage_summary {}
+
 # explore: columns {}
 #
 # explore: databases {}
