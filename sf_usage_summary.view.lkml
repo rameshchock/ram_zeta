@@ -20,7 +20,7 @@ view: sf_usage_summary {
     sql: ${TABLE}.date_id ;;
   }
 
-  measure: bytes_transferred {
+  measure: bytes_transferred_tb {
     type: sum
     sql: ${TABLE}.bytes_transferred ;;
     value_format_name: decimal_2
@@ -43,19 +43,19 @@ view: sf_usage_summary {
     value_format_name: usd_0
   }
 
-  measure: failsafe_bytes {
+  measure: failsafe_bytes_tb {
     type: average
     sql: ${TABLE}.failsafe_bytes ;;
     value_format_name: decimal_2
   }
 
-  measure: storage_bytes {
+  measure: storage_bytes_tb {
     type: average
     sql: ${TABLE}.storage_bytes ;;
     value_format_name: decimal_2
   }
 
-  measure: total_storage_bytes {
+  measure: total_storage_bytes_tb {
     type: average
     sql: ${TABLE}.storage_bytes + ${TABLE}.failsafe_bytes;;
     value_format_name: decimal_2
