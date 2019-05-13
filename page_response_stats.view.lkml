@@ -1,5 +1,5 @@
 view: page_response_stats {
-  sql_table_name: process_metrics.page_response_stats ;;
+  sql_table_name: process_metrics.v_page_response_stats ;;
 
   dimension_group: report_date {
     type: time
