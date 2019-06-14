@@ -1,4 +1,4 @@
-view: campaign_facts {
+view: sf_campaign_facts {
   sql_table_name: LOOKER.CAMPAIGN_FACTS ;;
 
   dimension_group: assembly_time {
