@@ -24,6 +24,8 @@ explore: v_campaign_events {}
 
 explore: v_site_cost_by_day {}
 
+explore: monthly_cost_by_site {}
+
 # explore: aggr_site_id_hourly {}
 
 explore: aggr_siteid_event_types_daily {}
