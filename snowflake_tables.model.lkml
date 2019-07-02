@@ -22,3 +22,6 @@ include: "*.view.lkml"                       # include all views in this project
 # }
 
 explore: sf_campaign_facts {}
+explore: sf_query_history_by_warehouse {}
+explore: sf_warehouse_utilization {}
+explore: sf_warehouse_metering_history {}
