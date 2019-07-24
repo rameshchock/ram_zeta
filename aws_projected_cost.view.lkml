@@ -103,13 +103,13 @@ view: aws_projected_cost {
 
   measure: 2months_b4_cost {
     type: sum
-    sql: ${TABLE}.p2_months_cost;;
+    sql: ${TABLE}.p2months_cost;;
     value_format_name: usd_0
   }
 
   measure: 3months_b4_cost {
     type: sum
-    sql: ${TABLE}.p3_months_cost;;
+    sql: ${TABLE}.p3months_cost;;
     value_format_name: usd_0
   }
 
