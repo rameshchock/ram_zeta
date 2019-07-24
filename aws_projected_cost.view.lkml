@@ -95,6 +95,24 @@ view: aws_projected_cost {
     value_format_name: usd_0
   }
 
+  measure: prior_month_cost {
+    type: sum
+    sql: ${TABLE}.prior_month_cost;;
+    value_format_name: usd_0
+  }
+
+  measure: 2months_b4_cost {
+    type: sum
+    sql: ${TABLE}.p2_months_cost;;
+    value_format_name: usd_0
+  }
+
+  measure: 3months_b4_cost {
+    type: sum
+    sql: ${TABLE}.p3_months_cost;;
+    value_format_name: usd_0
+  }
+
   set: detail {
     fields: [
       usagedate_date,
