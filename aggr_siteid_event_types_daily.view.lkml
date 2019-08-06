@@ -52,6 +52,10 @@ view: aggr_siteid_event_types_daily {
       field: event_type
       value: "nudgespot::message_opened"
     }
+    drill_fields: [daily_msgs_open*]
+  }
+  set: daily_msgs_open {
+    fields: [events_date, site_id, messages_opened]
   }
 
   measure: messages_skipped {
