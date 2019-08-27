@@ -50,7 +50,7 @@ explore: aggr_campaigns_daily {}
 
 # explore: aggr_campaigns_hourly {}
 
-explore: agg_aws_cost {}
+explore: agg_aws_cost{}
 
 explore: agg_cost_and_event {}
 
