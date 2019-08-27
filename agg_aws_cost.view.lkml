@@ -93,7 +93,7 @@ view: agg_aws_cost {
   measure: lineitem_blendedcost {
     type: sum
     sql: ${TABLE}.lineitem_blendedcost ;;
-    value_format_name: usd_0
+    value_format_name: usd
   }
 
   measure: event_cost {
