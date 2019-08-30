@@ -14,7 +14,7 @@ datagroup: events_default_datagroup {
 
 persist_with: events_default_datagroup
 
-## explore: aggr_site_id_daily {}
+# explore: aggr_site_id_daily {}
 
 explore: v_daily_event_cost {}
 
