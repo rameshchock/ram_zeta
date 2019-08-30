@@ -20,7 +20,7 @@ explore: v_daily_event_cost {}
 
 explore: v_campaign_events {}
 
-#-- explore: v_daily_event_cost_new {}
+##-- explore: v_daily_event_cost_new {}
 
 explore: v_site_cost_by_day {}
 
