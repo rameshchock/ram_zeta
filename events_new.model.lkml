@@ -5,7 +5,7 @@ week_start_day: wednesday
 # include all the views
 include: "*.view"
 
-# include: "*.dashboard.lookml"
+## include: "*.dashboard.lookml"
 
 datagroup: events_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
